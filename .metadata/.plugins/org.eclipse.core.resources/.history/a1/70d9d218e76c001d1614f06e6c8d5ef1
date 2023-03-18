@@ -1,0 +1,39 @@
+package combinedpractice;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class WebElementgetCssProperty {
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		 WebDriverManager.chromedriver().setup();
+		    RemoteWebDriver driver =new ChromeDriver();
+		    driver.get("https://www.google.com");
+		    Actions act= new Actions(driver);
+		   WebElement e= driver.findElement(By.linkText("Gmail"));
+		  String x= e.getCssValue("text-decoration");
+		  System.out.println("Cssvalue before focus: "+x);
+		  act.moveToElement(e).perform();
+		  Thread.sleep(5000);
+		  String y=e.getCssValue("text-decoration");
+		  System.out.println("Css value after focus :"+y);
+		  if(x.equals(y))
+		  {
+			  System.out.println("Test case passed");
+		  }
+		  else
+		  {
+			  System.out.println("Test case failed");
+		  }
+		  
+		    
+
+	}
+
+}

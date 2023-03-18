@@ -1,0 +1,26 @@
+package runner;
+
+import java.awt.Shape;
+
+import java1.Circle;
+
+public class TestInterface {
+
+	public static void main(String[] args) {
+		// Shape s = new Shape(); CE: we can not create object for Intrfaces hence we will get compile tiem error
+		
+		Shape s = new Circle(10.5);
+		          //------------------> Circlet Object creation (implementaion class object)
+		s.draw();
+		double carea = s.getArea();
+		System.out.println("Circle Area:"+carea);
+		System.out.println("----------------------");
+		Shape s2 = new Rectangle(10.5, 15.5);
+		s2.draw();
+		double rarea = s2.getArea();
+		System.out.println("Rectangle Area:"+rarea);
+	}
+
+	}
+
+
